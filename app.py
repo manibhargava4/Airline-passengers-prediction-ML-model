@@ -2,7 +2,7 @@ from keras.models import load_model
 from flask import Flask, render_template, request, url_for, redirect
 import numpy as np
 
-app = Flask("passmodelapp")
+app = Flask(__name__)
 
 model = load_model("pass_model.h5")
 
@@ -24,7 +24,8 @@ def predict():
         return render_template('airline.html',pred='Customer is satisfied with the services provided.')
 
 
-app.run(host="172.17.0.2", port=8080)
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 
