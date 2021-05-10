@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Airline Passengers Satisfaction Prediction</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+        </div>
+    </nav>
+
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h1 class="header center orange-text">Airline Passenger Satisfaction Prediction </h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Predict whether customers are satisfied or neutral/dissatisfied
+                    <br>
+                </h5>
+            </div>
+
+            <div class="row">
+                <form action='/predict' method="post" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s4">
+                           <label><b>Customer Type (First-Time:0, Returning:1)</b></label>
+                            <br>
+                            <input name="customer_type"  type="range" min="0" max="1" step="1" value="0"  onchange="moveSlider()">
+                        </div>
+
+                        <div class="input-field col s4">
+
+                            <label><b>Age (1 to 80) </b></label>
+                            <br>
+                            <input type="range" min="1" max="80" step="1" value="0" name="age" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Seat Comfort (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="seat_comfort" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Food and Drink (1 to 5) </b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="food_and_drink" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Inflight Wifi Service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="inflight_wifi_service" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Inflight Entertainment(1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="inflight_entertainment" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Online Service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="online_service" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Ease of Online Booking (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="ease_of_online_booking" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>On-board Service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="onboard_service" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Leg Room service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="leg_room" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Baggage Handling (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="baggage_handling" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Checkin Service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="checkin_service" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Cleanliness  (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="cleanliness" onchange="moveSlider()">
+
+                        </div>
+
+                        <div class="input-field col s4">
+                            <label><b>Online Boarding service (1 to 5)</b></label>
+                            <br>
+                            <input type="range" min="1" max="5" step="1" value="0" name="online_boarding" onchange="moveSlider()">
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="row center">
+
+                        <button type="submit" class="btn-large waves-effect waves-light orange">Predict</button>
+                    </div>
+                </form>
+            </div>
+
+            <br> {{pred}}
+            <br>
+
+        </div>
+    </div>
+
+
+    <br><br>
+    </div>
+    </div>>
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src=".js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+</body>
+
+</html>
